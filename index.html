@@ -52,6 +52,43 @@ New projects should be written in Python 3.</p>
 <h2>
 <a id="the-print-statement-is-now-a-function" class="anchor" href="#the-print-statement-is-now-a-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>print</code> statement is now a function</h2>
 
+<pre><code>Old: print "The answer is", 2*2
+New: print("The answer is", 2*2)
+
+Old: print x,           # Trailing comma suppresses newline
+New: print(x, end=" ")  # Appends a space instead of a newline
+
+Old: print              # Prints a newline
+New: print()            # You must call the function!
+
+Old: print &gt;&gt;sys.stderr, "fatal error"
+New: print("fatal error", file=sys.stderr)
+
+print([object, ...][, sep=' '][, end='\n'][, file=sys.stdout])
+
+&gt;&gt;&gt; print("There are &lt;", 2**32, "&gt; possibilities!", sep="")
+There are &lt;4294967296&gt; possibilities!
+</code></pre>
+
+<h1>
+<a id="2to3-source-to-source-conversion-tool" class="anchor" href="#2to3-source-to-source-conversion-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>2to3</code> source-to-source conversion tool</h1>
+
+<p>This is a utility designed to convert source code from Python 2 to Python 3. It is usually installed with the Python interpreter as a script, and it preserves comments and the exact indentation of code. Example:</p>
+
+<pre><code>$ 2to3 -w foobar.py
+</code></pre>
+
+<p>writes modifications to the source file, and creates a backup of the original source.</p>
+
+<h1>
+<a id="additional-information" class="anchor" href="#additional-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional information</h1>
+
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1e8KoObdM6fJD_sp1o8UxoneB2IDA1Ar0OvtuQqwnV6o/edit?usp=sharing">Original presentation</a></li>
+<li><a href="https://docs.python.org/3/whatsnew/3.0.html">https://docs.python.org/3/whatsnew/3.0.html</a></li>
+<li><a href="https://wiki.python.org/moin/Python2orPython3">https://wiki.python.org/moin/Python2orPython3</a></li>
+</ul>
+
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/daltonwu/python-3-presentation">Introduction to Python 3</a> is maintained by <a href="https://github.com/daltonwu">daltonwu</a>.</span>
 
