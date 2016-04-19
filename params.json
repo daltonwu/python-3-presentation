@@ -1,6 +1,6 @@
 {
   "name": "Introduction to Python 3",
   "tagline": "",
-  "body": "# Python 3",
+  "body": "### tl;dr\r\nPython 2.x is legacy.  \r\nPython 3.x is the present and future of the language.  \r\nNew projects should be written in Python 3.\r\n\r\n# Python version numbers\r\nPython version numbers come in the form `A.B.C` where:\r\n* `A` is the major version number\r\n* `B` is the minor version number\r\n* `C` is the bugfix release number\r\n\r\nSome examples: versions 2.7.11 (2015-12-05), 3.5.1 (2015-12-07), and 3.4.4 (2015-12-21). Note that bugfixes are rolled out even for past releases of Python.\r\n\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
