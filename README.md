@@ -59,10 +59,20 @@ Binary data:
 
 When the two different types are mixed, a `TypeError` is immediately raised. This is perhaps more sensible than the behavior in Python 2, where some quirks allow certain combination cases to be valid.
 
+## Raw string literals
 In Python 3, all raw string literals are interpreted literally (wow!).
-* `r'\u20ac'` is a string of six characters in Python 3
-* `ur'\u20ac'` was the single Euro character in Python 2
+* `r'\u20ac'` is a string of six characters in Python 3.
+* `ur'\u20ac'` was the single Euro character in Python 2.
+
 This only affects raw string literals! The Euro character is still `'\u20ac'` in Python 3.
+
+## Non-ASCII letters
+Support for the use of non-ASCII letters in variable names was added in an effort to make coding more international. The standard Python library remains ASCII-only for ease of use (with the exception of contributor names in comments).
+
+## Miscellaneous
+* `range()` now behaves like `xrange()` used to behave, except it works with values of arbitrary size. The latter no longer exists.
+* `raw_input()` was renamed to `input()`. To get the old behavior of `input()`,  use `eval(input())`.
+* `True`, `False`, and `None` are now reserved words.
 
 # `2to3` source-to-source conversion tool
 This is a utility designed to convert source code from Python 2 to Python 3. It is usually installed with the Python interpreter as a script, and it preserves comments and the exact indentation of code. Example:
