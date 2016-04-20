@@ -70,6 +70,74 @@ print([object, ...][, sep=' '][, end='\n'][, file=sys.stdout])
 There are &lt;4294967296&gt; possibilities!
 </code></pre>
 
+<h2>
+<a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Numbers</h2>
+
+<p>An expression like <code>1/2</code> now returns a float. Use <code>1//2</code> to get the truncating behavior.</p>
+
+<p>Octal literals are no longer of the form <code>0720</code>; use <code>0o720</code> instead (implemented since version 2.6). Likewise, use <code>0b1010</code> for binary literals (also supported since version 2.6).</p>
+
+<p>Essentially, the number type <code>long</code> has been renamed to <code>int</code>. Integer literals no longer support a trailing <code>l</code> or <code>L</code>.</p>
+
+<p>The constant <code>sys.maxint</code> has been removed, since there is no longer a limit to the value of integers. <code>sys.maxsize</code>can be used as an integer larger than any practical list or string index, and typically has the same value as <code>sys.maxint</code> used to.</p>
+
+<h2>
+<a id="text-vs-data-instead-of-unicode-vs-8-bit" class="anchor" href="#text-vs-data-instead-of-unicode-vs-8-bit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Text vs. data instead of Unicode vs. 8-bit</h2>
+
+<p>In an attempt to simplify string encoding and decoding, the concepts of <em>text</em> and binary <em>data</em> were implemented.</p>
+
+<p>Text:</p>
+
+<ul>
+<li>Unicode</li>
+<li>Type <code>str</code>
+</li>
+<li>Literals are plain <code>...</code> (string literals no longer support a leading <code>u</code> or <code>U</code>)</li>
+</ul>
+
+<p>Binary data:</p>
+
+<ul>
+<li>Encoded Unicode</li>
+<li>Type <code>bytes</code>
+</li>
+<li>Literals: still <code>b'...'</code>
+</li>
+</ul>
+
+<p>When the two different types are mixed, a <code>TypeError</code> is immediately raised. This is perhaps more sensible than the behavior in Python 2, where some quirks allow certain combination cases to be valid.</p>
+
+<h2>
+<a id="raw-string-literals" class="anchor" href="#raw-string-literals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raw string literals</h2>
+
+<p>In Python 3, all raw string literals are interpreted literally (wow!).</p>
+
+<ul>
+<li>
+<code>r'\u20ac'</code> is a string of six characters in Python 3.</li>
+<li>
+<code>ur'\u20ac'</code> was the single Euro character in Python 2.</li>
+</ul>
+
+<p>This only affects raw string literals! The Euro character is still <code>'\u20ac'</code> in Python 3.</p>
+
+<h2>
+<a id="non-ascii-letters" class="anchor" href="#non-ascii-letters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non-ASCII letters</h2>
+
+<p>Support for the use of non-ASCII letters in variable names was added in an effort to make coding more international. The standard Python library remains ASCII-only for ease of use (with the exception of contributor names in comments).</p>
+
+<h2>
+<a id="miscellaneous" class="anchor" href="#miscellaneous" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Miscellaneous</h2>
+
+<ul>
+<li>
+<code>range()</code> now behaves like <code>xrange()</code> used to behave, except it works with values of arbitrary size. The latter no longer exists.</li>
+<li>
+<code>raw_input()</code> was renamed to <code>input()</code>. To get the old behavior of <code>input()</code>,  use <code>eval(input())</code>.</li>
+<li>
+<code>True</code>, <code>False</code>, and <code>None</code> are now reserved words.</li>
+</ul>
+
 <h1>
 <a id="2to3-source-to-source-conversion-tool" class="anchor" href="#2to3-source-to-source-conversion-tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>2to3</code> source-to-source conversion tool</h1>
 
