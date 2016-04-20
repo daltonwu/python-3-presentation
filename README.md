@@ -11,7 +11,7 @@ Python version numbers come in the form `A.B.C` where:
 
 Some examples: versions 2.7.11 (2015-12-05), 3.5.1 (2015-12-07), and 3.4.4 (2015-12-21). Note that bugfixes continue to be rolled out even for previous versions of Python.
 
-Python 2.7, the last minor update to Python 2, was released in 2010. This marked the end of _feature_ updates to Python 2—there will never be a Python version 2.8. The end-of-life for Python 2 is currently set to 2020; however, it will likely be postponed for reasons presented below.
+Python 2.7, the last minor update to Python 2, was released in 2010. This marked the end of _feature_ updates to Python 2—there will never be a Python version 2.8. The end-of-life for Python 2 is currently set to 2020; however, it will likely be postponed because a significant amount of code in use is written in Python 2 and cannot or will not be easily converted to Python 3.
 
 Python 3.0 was released in 2008. It may be surprising that the first version of Python 3 came before the last version of Python 2. It may also be surprising that Python 3.0 is, in the words of Guido von Rossum, B.D.F.L., the "first ever _intentionally backwards incompatible_ Python release". At the time of writing, Python 3 is continually receiving improvements and new features.
 
