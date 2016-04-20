@@ -18,8 +18,6 @@ Python 3.0 was released in 2008. It may be surprising that the first version of 
 # Primary differences between Python 2 and Python 3
 
 ## The `print` statement is now a function
-
-
     Old: print "The answer is", 2*2
     New: print("The answer is", 2*2)
     
@@ -36,6 +34,35 @@ Python 3.0 was released in 2008. It may be surprising that the first version of 
     
     >>> print("There are <", 2**32, "> possibilities!", sep="")
     There are <4294967296> possibilities!
+
+## Numbers
+An expression like `1/2` now returns a float. Use `1//2` to get the truncating behavior.
+
+Octal literals are no longer of the form `0720`; use `0o720` instead (implemented since version 2.6). Likewise, use `0b1010` for binary literals (also supported since version 2.6).
+
+Essentially, the number type `long` has been renamed to `int`. Integer literals no longer support a trailing `l` or `L`.
+
+The constant `sys.maxint` has been removed, since there is no longer a limit to the value of integers. `sys.maxsize`can be used as an integer larger than any practical list or string index, and typically has the same value as `sys.maxint` used to.
+
+## Text vs. data instead of Unicode vs. 8-bit
+In an attempt to simplify string encoding and decoding, the concepts of _text_ and binary _data_ were implemented.
+
+Text:
+* Unicode
+* Type `str`
+* Literals are plain `...` (string literals no longer support a leading `u` or `U`)
+
+Binary data:
+* Encoded Unicode
+* Type `bytes`
+* Literals: still `b'...'`
+
+When the two different types are mixed, a `TypeError` is immediately raised. This is perhaps more sensible than the behavior in Python 2, where some quirks allow certain combination cases to be valid.
+
+In Python 3, all raw string literals are interpreted literally (wow!).
+* `r'\u20ac'` is a string of six characters in Python 3
+* `ur'\u20ac'` was the single Euro character in Python 2
+This only affects raw string literals! The Euro character is still `'\u20ac'` in Python 3.
 
 # `2to3` source-to-source conversion tool
 This is a utility designed to convert source code from Python 2 to Python 3. It is usually installed with the Python interpreter as a script, and it preserves comments and the exact indentation of code. Example:
